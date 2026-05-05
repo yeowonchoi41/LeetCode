@@ -1,7 +1,7 @@
 bool isPalindrome(int x) {
-    int arr2[30] = {0};
-    int i = 0;
-    int length = 0;
+    int y = 0;
+    long long result = 0;
+    int original = x;
 
     if(x < 0){
         return false;
@@ -9,15 +9,13 @@ bool isPalindrome(int x) {
 
     else{
         while(x > 0){
-            arr2[i++] = x % 10;
-            x = x / 10;
-            length++;
+            y = x % 10;
+            result = result * 10 + y;
+            x /= 10;
         }
 
-       for(int i = 0; i < length / 2; i++){ 
-                if(arr2[i] == arr2[length - 1 - i]) continue;
-                return false;
-            }
-        return true;
+        if(result == original) return true;
+
+        else return false;
     }
 }
